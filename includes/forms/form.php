@@ -6,12 +6,12 @@
 	{
 		private $id;
 		private $cssClass = "";
-		private $accept_charset;
+		private $acceptCharset;
 		private $legend;
 		private $action;
 		private $autocomlete;
 		private $encrypt;
-		private $novalidate;
+		private $noValidate;
 		private $method = "POST";
 		private $name;
 		private $inputs = [];
@@ -21,27 +21,10 @@
 		 * @param array $config
 		 */
 		public function __construct( array $attributes = [] ) {
-			$attributes = [
-				"cssClass" => "class",
-				"metHOD" => "post"
-			];
 			foreach ( $attributes as $key => $value ) {
-				if ( !in_array( $key, $this->getRestrictedAttributes() ) ) {
-					if ( property_exists( $this, mb_strtolower( $key ) ) ) {
-						$key = mb_strtolower( $key );
-						$this->$key = $value;
-					}
-				} else {
-					switch ( $key ) {
-						case "cssClass":
-							$this->cssClass = $value;
-							break;
-
-						// TODO: Make this Case out of the "else" block;
-						case "accept_charset":
-							$this->accept_charset = $value;
-							break;
-					}
+				if ( property_exists( $this, Helper::getAttributeWithCamelCase( $key ) ) ) {
+					$key = Helper::getAttributeWithCamelCase( $key );
+					$this->$key = $value;
 				}
 			}
 		}
@@ -132,17 +115,17 @@
 		}
 
 		/**
-		 * @param mixed $accept_charset
+		 * @param mixed $acceptCharset
 		 */
-		public function setAcceptCharset( $accept_charset ) {
-			$this->accept_charset = $accept_charset;
+		public function setAcceptCharset( $acceptCharset ) {
+			$this->acceptCharset = $acceptCharset;
 		}
 
 		/**
 		 * @return mixed
 		 */
 		public function getAcceptCharset() {
-			return $this->accept_charset;
+			return $this->acceptCharset;
 		}
 
 		/**
@@ -176,15 +159,15 @@
 		/**
 		 * @param mixed $novalidate
 		 */
-		public function setNovalidate( $novalidate ) {
-			$this->novalidate = $novalidate;
+		public function setNoValidate( $noValidate ) {
+			$this->noValidate = $noValidate;
 		}
 
 		/**
 		 * @return mixed
 		 */
 		public function getNovalidate() {
-			return $this->novalidate;
+			return $this->noValidate;
 		}
 
 		/**
@@ -220,7 +203,7 @@
 		 *
 		 */
 		private function renderOpenTag() {
-			$openTag = "<form " . $this->getAttributes() . ">";
+			$openTag = "<form " . $this->getHtmlAttributes() . ">";
 
 			echo $openTag;
 		}
@@ -228,36 +211,15 @@
 		/**
 		 * @return string
 		 */
-		private function getAttributes() {
-			$attributes = get_object_vars( $this );
-			$restrictedAttributes = $this->getRestrictedAttributes();
-			$tempAttributes = "";
+		private function getHtmlAttributes() {
+			$attributes = get_object_vars($this);
+			$htmlAttributes = "";
 			foreach ( $attributes as $key => $value ) {
-				if ( $value !== NULL && $key !== "inputs" ) {
-					if ( !in_array( $key, $restrictedAttributes ) ) {
-						$tempAttributes .= $key . "='"  . $value . "'";
-					} else {
-						switch ( $key ) {
-							case "cssClass":
-								$tempAttributes .=  "class='" . $this->getCssClass() . "'";
-								break;
-
-							case "accept_charset":
-								$tempAttributes .=  "accept-charset='" . $this->accept_charset . "'";
-								break;
-						}
-
-					}
+				if ( $value !== NULL && !in_array($key, Helper::getAttributesNotInHtml()) ) {
+					$htmlAttributes .= Helper::getHtmlAttributeName($key) . "='" . $value . "'";
 				}
 			}
-			return $tempAttributes;
-		}
-
-		/**
-		 * @return string[]
-		 */
-		private function getRestrictedAttributes() {
-			return [ "cssClass", "noValidateInFront", "accept_charset" ];
+			return $htmlAttributes;
 		}
 
 		/**

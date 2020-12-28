@@ -15,7 +15,9 @@
 			$this->type = $type;
 		}
 
-		abstract protected function render();
+		protected function render() {
+			echo "<input type='". $this->getType() ."' " . $this->getHtmlAttributes() . ">";
+		}
 
 		public function renderDiv() {
 			$this->renderOpenTag();
@@ -24,10 +26,22 @@
 		}
 
 		protected function renderOpenTag() {
-			echo "<div>";
+			echo "<div>\n";
 		}
 
 		protected function renderCloseTag() {
-			echo "</div>";
+			echo "</div>\n";
+		}
+
+		protected function getHtmlAttributes() {
+			$attributes = get_object_vars($this);
+			$htmlAttributes = "";
+			foreach ( $attributes as $key => $value ) {
+				if ( $value !== NULL && !in_array($key, Helper::getAttributesNotInHtml()) ) {
+					$htmlAttributes .= Helper::getHtmlAttributeName($key) . "='" . $value . "'";
+				}
+			}
+			return $htmlAttributes;
+
 		}
 	}
