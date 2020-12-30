@@ -2,7 +2,7 @@
 
 	Abstract class form_input
 	{
-		private $inputId;
+		private $id;
 		private $group;
 		private $formId;
 		private $type;
@@ -13,100 +13,67 @@
 		private $autoFocus;
 		private $label;
 
-		/**
-		 * @param $inputId
-		 */
-		public function setInputId( $inputId ) {
-			$this->inputId = $inputId;
+		public function __construct( array $attributes = [] ) {
+			foreach ( $attributes as $key => $value ) {
+				if ( property_exists( $this, Helper::getAttributeWithCamelCase( $key ) ) ) {
+					$key = Helper::getAttributeWithCamelCase( $key );
+					$this->$key = $value;
+				}
+			}
 		}
 
-		/**
-		 * @return mixed
-		 */
-		public function getInputId() {
-			return $this->inputId;
+		public function setId( $id ) {
+			$this->id = $id;
 		}
 
-		/**
-		 * @param $group
-		 */
+		public function getId() {
+			return $this->id;
+		}
+
 		public function setGroup( $group ) {
 			$this->group = $group;
 		}
 
-		/**
-		 * @return mixed
-		 */
 		public function getGroup() {
 			return $this->group;
 		}
 
-		/**
-		 * @param $formId
-		 */
 		public function setFormId( $formId ) {
 			$this->formId = $formId;
 		}
 
-		/**
-		 * @return mixed
-		 */
 		public function getFormId() {
 			return $this->formId;
 		}
 
-		/**
-		 * @return mixed
-		 */
 		public function getType() {
 			return $this->type;
 		}
 
-		/**
-		 * @param $type
-		 */
 		protected function setType( $type ) {
 			$this->type = $type;
 		}
 
-		/**
-		 * @param $style
-		 */
 		public function setStyle( $style ) {
 			$this->style = $style;
 		}
 
-		/**
-		 * @return mixed
-		 */
 		public function getStyle() {
 			return $this->style;
 		}
 
-		/**
-		 * @param $name
-		 */
 		public function setName( $name ) {
 			$this->name = $name;
 		}
 
-		/**
-		 * @return mixed
-		 */
 		public function getName() {
 			return $this->name;
 		}
 
-		/**
-		 * @param $value
-		 */
 		public function setValue( $value ) {
 			$this->value = $value;
 		}
 
-		/**
-		 * @return mixed
-		 */
 		public function getValue() {
 			return $this->value;
 		}
@@ -115,37 +82,22 @@
 			$this->disabled = $disabled;
 		}
 
-		/**
-		 * @return mixed
-		 */
 		public function getDisabled() {
 			return $this->disabled;
 		}
 
-		/**
-		 * @param bool $autoFocus
-		 */
 		public function setAutoFocus( $autoFocus = true ) {
 			$this->autoFocus = $autoFocus;
 		}
 
-		/**
-		 * @return mixed
-		 */
 		public function getAutoFocus() {
 			return $this->autoFocus;
 		}
 
-		/**
-		 * @param $label
-		 */
 		public function setLabel( $label ) {
 			$this->label = $label;
 		}
 
-		/**
-		 * @return mixed
-		 */
 		public function getLabel() {
 			return $this->label;
 		}
@@ -187,8 +139,8 @@
 			$attributes = get_object_vars($this);
 			$htmlAttributes = "";
 			foreach ( $attributes as $key => $value ) {
-				if ( $value !== NULL && !in_array($key, Helper::getAttributesNotInHtml()) ) {
-					$htmlAttributes .= Helper::getHtmlAttributeName($key) . "='" . $value . "'";
+				if ( $value !== NULL && !in_array($key, Helper::getAttributesNotInHtml()) && $value != false) {
+					$htmlAttributes .= Helper::getHtmlAttributeName($key) . "='" . $value . "' ";
 				}
 			}
 			return $htmlAttributes;

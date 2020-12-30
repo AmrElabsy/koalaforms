@@ -1,11 +1,10 @@
 <?php
 
-class checkbox extends checkable_inputs
+class radiobutton extends checkable_inputs
 {
-
 	public function __construct( array $attributes = [] ) {
 		parent::__construct( $attributes );
-		$this->setType("checkbox");
+		$this->setType("radio");
 	}
 
 	public function render($class = self::class) {

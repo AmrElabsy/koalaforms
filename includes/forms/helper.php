@@ -35,6 +35,6 @@ class Helper
 	}
 
 	public static function getAttributesNotInHtml() {
-		return [ 'inputs' ];
+		return [ 'inputs', 'inputId' , 'formId', 'label' ];
 	}
 }

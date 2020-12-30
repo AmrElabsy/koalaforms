@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="9c0303b0-9b04-4ec7-aec8-b328be11fced" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/includes/forms/inputtypes/checkable_inputs.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/forms/inputtypes/checkboxes_input.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/forms/inputtypes/radiobutton_input.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/forms/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/forms/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/forms/form.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/forms/form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/forms/helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/forms/helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/forms/inputtypes/checkbox_input.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/forms/inputtypes/checkbox_input.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/forms/inputtypes/form_input.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/forms/inputtypes/form_input.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +50,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../w" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
@@ -42,14 +69,29 @@
       <workItem from="1608666519992" duration="6318000" />
       <workItem from="1609061673835" duration="127000" />
       <workItem from="1609195472987" duration="5457000" />
-      <workItem from="1609355821668" duration="2010000" />
+      <workItem from="1609355821668" duration="6888000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
+    <state x="218" y="57" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609364953609">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="218" y="57" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1609364953609" />
     <state x="489" y="194" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608669708308">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -58,13 +100,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="526" y="21" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1608378645996" />
-    <state x="495" y="107" key="FileChooserDialogImpl" timestamp="1608670517241">
+    <state x="495" y="107" key="FileChooserDialogImpl" timestamp="1609363140646">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="495" y="107" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1608670517241" />
-    <state x="500" y="80" key="NewPhpClassDialog" timestamp="1608378353268">
+    <state x="495" y="107" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1609363140646" />
+    <state x="500" y="80" key="NewPhpClassDialog" timestamp="1609365144200">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="500" y="80" key="NewPhpClassDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1608378353268" />
+    <state x="500" y="80" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1609365144200" />
+    <state x="159" y="0" key="SettingsEditor" timestamp="1609359911209">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="159" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1609359911209" />
+    <state x="411" y="80" width="714" height="664" key="find.popup" timestamp="1609363034981">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="411" y="80" width="714" height="664" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1609363034981" />
   </component>
 </project>
