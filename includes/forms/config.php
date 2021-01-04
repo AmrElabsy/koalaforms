@@ -17,5 +17,6 @@
 	require_once("inputtypes/times/week.php");
 
 	require_once("elements/label.php");
-	
 
+	require_once("behaviours/placeholder/placeholderbehavior.php");
+	require_once("behaviours/placeholder/noplaceholderbehavior.php");

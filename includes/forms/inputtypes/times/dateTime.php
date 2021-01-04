@@ -6,8 +6,4 @@ class times extends KTimes
         parent::__construct( $attributes );
         $this->setType("datetime-local");
 	}
-
-    public function render() {
-        parent::render();
-	}
 }

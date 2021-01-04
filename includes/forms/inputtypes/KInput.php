@@ -13,6 +13,8 @@
 		private $autoFocus;
 		private $label;
 
+		private $placeholderBehavoir;
+
 		public function __construct( array $attributes = [] ) {
 			foreach ( $attributes as $key => $value ) {
 				if ( property_exists( $this, Helper::getAttributeWithCamelCase( $key ) ) ) {
@@ -20,10 +22,13 @@
 					$this->$key = $value;
 				}
 			}
+			$this->placeholderBehavoir = new placeholderbehavior();
+			$this->label = new Label();
 		}
 
 		public function setId( $id ) {
 			$this->id = $id;
+			$this->label->setFor( $id );
 		}
 
 		public function getId() {
@@ -97,16 +102,35 @@
 			return $this->autoFocus;
 		}
 
-		public function setLabel( $label ) {
+		public function setLabel( Label $label ) {
 			$this->label = $label;
+			$this->label->setFor( $this->id );
 		}
 
 		public function getLabel() {
 			return $this->label;
 		}
 
+		public function setPlaceholder( $placeholder ) {
+			$this->placeholderBehavoir->setPlaceholder( $placeholder );
+		}
+
+		public function getPlaceholder() {
+			return $this->placeholderBehavoir->getPlaceholder();
+		}
+
+		protected function setPlaceholderBehavoir( $placeholderBehavoir ) {
+			$this->placeholderBehavoir = $placeholderBehavoir;
+		}
+
 		protected function render() {
-			echo "<input " . $this->getHtmlAttributes() . ">";
+			if ( !$this->label->isAfterElement() ) {
+				$this->label->render();
+				echo "<input " . $this->getHtmlAttributes() . ">";
+			} else {
+				echo "<input " . $this->getHtmlAttributes() . ">";
+				$this->label->render();
+			}
 		}
 
 		public function setProperties() {
@@ -139,11 +163,13 @@
 		}
 
 		protected function getHtmlAttributes() {
-			$attributes = get_object_vars($this);
+			$attributes = get_object_vars( $this );
 			$htmlAttributes = "";
 			foreach ( $attributes as $key => $value ) {
-				if ( $value !== NULL && !in_array($key, Helper::getAttributesNotInHtml()) ) {
-					$htmlAttributes .= Helper::getHtmlAttributeName($key) . "='" . $value . "'";
+				if ( $value !== NULL
+					&& !in_array( $key, Helper::getAttributesNotInHtml() )
+					&& !in_array( $key, Helper::getBehavoirsList() ) ) {
+					$htmlAttributes .= Helper::getHtmlAttributeName( $key ) . "='" . $value . "'";
 				}
 			}
 			return $htmlAttributes;

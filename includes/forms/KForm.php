@@ -135,8 +135,10 @@
 			$attributes = get_object_vars($this);
 			$htmlAttributes = "";
 			foreach ( $attributes as $key => $value ) {
-				if ( $value !== NULL && !in_array($key, Helper::getAttributesNotInHtml()) ) {
-					$htmlAttributes .= Helper::getHtmlAttributeName($key) . "='" . $value . "'";
+				if ( $value !== NULL
+					&& !in_array( $key, Helper::getAttributesNotInHtml() )
+					&& !in_array( $key, Helper::getBehavoirsList() ) ) {
+					$htmlAttributes .= Helper::getHtmlAttributeName( $key ) . "='" . $value . "'";
 				}
 			}
 			return $htmlAttributes;

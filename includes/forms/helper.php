@@ -13,6 +13,9 @@ class Helper
 			case "novalidate":
 				return "noValidate";
 
+			case "afterelement":
+				return "afterElement";
+
 			default:
 				return $attribute;
 		}
@@ -34,7 +37,11 @@ class Helper
 		}
 	}
 
+	public static function getBehavoirsList() {
+		return [ 'placeholderBehavoir' ];
+	}
+
 	public static function getAttributesNotInHtml() {
-		return [ 'inputs' ];
+		return [ 'inputs', "label", "afterElement" ];
 	}
 }

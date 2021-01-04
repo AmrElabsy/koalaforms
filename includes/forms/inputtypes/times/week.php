@@ -6,8 +6,4 @@ class week extends KTimes
         parent::__construct( $attributes );
         $this->setType("week");
 	}
-
-    public function render() {
-        parent::render();
-	}
 }

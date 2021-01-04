@@ -6,8 +6,4 @@ class time extends KTimes
         parent::__construct( $attributes );
         $this->setType("time");
 	}
-
-    public function render() {
-        parent::render();
-	}
 }

@@ -6,8 +6,4 @@ class month extends KTimes
         parent::__construct( $attributes );
         $this->setType("month");
 	}
-
-    public function render() {
-        parent::render();
-	}
 }
