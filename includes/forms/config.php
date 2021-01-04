@@ -1,12 +1,21 @@
 <?php
+    require_once("helper.php");
+    require_once("KForm.php");
+	require_once("inputtypes/KInput.php");
+	require_once("inputtypes/checkable/checkbox.php");
+	require_once("inputtypes/checkable/checkboxes.php");
+	require_once("inputtypes/checkable/KCheckables.php");
+	require_once("inputtypes/checkable/radioBotton.php");
+	require_once("inputtypes/numeric/KNumeric.php");
+	require_once("inputtypes/numeric/number.php");
+	require_once("inputtypes/numeric/range.php");
+	require_once("inputtypes/times/KTimes.php");
+	require_once("inputtypes/times/date.php");
+	require_once("inputtypes/times/dateTime.php");
+	require_once("inputtypes/times/month.php");
+	require_once("inputtypes/times/time.php");
+	require_once("inputtypes/times/week.php");
 
-	require_once ("inputtypes/form_input.php");
-	require_once ("inputtypes/checkable_inputs.php");
+	require_once("elements/label.php");
+	
 
-	require_once ("inputtypes/checkbox_input.php");
-	require_once ("inputtypes/text_input.php");
-	require_once ("inputtypes/submit_input.php");
-	require_once ("inputtypes/checkboxes_input.php");
-	require_once ("inputtypes/radiobutton_input.php");
-
-	require_once ("helper.php");

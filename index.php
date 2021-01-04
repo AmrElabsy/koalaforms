@@ -1,6 +1,6 @@
 <?php
 
-include "includes/forms/form.php";
+include "includes/forms/assets/config.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	echo "request is post";
@@ -15,35 +15,24 @@ $form = new Form([
 $form->addCssClass("class1 class2");
 $form->addCssClass("class3 class4");
 
-$firstCheckBox = new checkbox();
-$firstCheckBox->check();
-$firstCheckBox->uncheck();
-$firstCheckBox->setId("myCheckBox");
-$firstCheckBox->setLabel("My Label");
+// $firstTime = new KTimes(["type"=>"time"]);
 
-$secondCheckBox = new checkbox([ "id" => "myID", "label" => "SecondLabel"]);
+// $form->addInput( $firstTime );
 
-$checkBoxes = new checkboxes();
-$checkBoxes->addCheckbox($firstCheckBox);
-$checkBoxes->addCheckbox($secondCheckBox);
+$firstTime = new time();
+//$firstTime->setType("time");
+$firstTime->setMax(7);
+$firstTime->setName("toty");
 
-$checkBoxes->setName("test");
-
-$radio = new radiobutton();
-$radio->setId("rb");
-$radio->setLabel("My Label for Radio");
-
-
-
-
-$form->addInput( $checkBoxes );
-$form->addInput($radio);
-$form->addInputs( [ new text(), new text() ] );
-$form->addInput( new submit() );
+$secondTime = new time(["min"=>"7","value"=>"mkmk"]);
+$form->addInput( $firstTime );
+$form->addInput( $secondTime );
+// $form->addInputs( [ new text(), new text() ] );
+// $form->addInput( new submit() );
 
 ?>
-<html>
+
 <body>
 <?php $form->renderForm(); ?>
+
 </body>
-</html>

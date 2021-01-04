@@ -25,7 +25,6 @@
 			}
 		}
 
-
 		public function setAction( $action ) {
 			$this->action = $action;
 		}
@@ -106,7 +105,7 @@
 			return $this->noValidate;
 		}
 
-		public function addInput(form_input $input) {
+		public function addInput(KInput $input) {
 			$this->inputs[] = $input;
 		}
 

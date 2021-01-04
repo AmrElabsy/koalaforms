@@ -1,6 +1,6 @@
 <?php
 
-	Abstract class form_input
+	Abstract class KInput
 	{
 		private $id;
 		private $group;
@@ -54,9 +54,12 @@
 			$this->type = $type;
 		}
 
-		public function setStyle( $style ) {
-			$this->style = $style;
-		}
+		// /**
+		//  * @param $style
+		//  */
+		// public function setStyle( $style ) {
+		// 	$this->style = $style;
+		// }
 
 		public function getStyle() {
 			return $this->style;
@@ -103,7 +106,7 @@
 		}
 
 		protected function render() {
-			echo "<input type='" . $this->getType() . "' " . $this->getHtmlAttributes() . ">";
+			echo "<input " . $this->getHtmlAttributes() . ">";
 		}
 
 		public function setProperties() {
@@ -139,10 +142,11 @@
 			$attributes = get_object_vars($this);
 			$htmlAttributes = "";
 			foreach ( $attributes as $key => $value ) {
-				if ( $value !== NULL && !in_array($key, Helper::getAttributesNotInHtml()) && $value != false) {
-					$htmlAttributes .= Helper::getHtmlAttributeName($key) . "='" . $value . "' ";
+				if ( $value !== NULL && !in_array($key, Helper::getAttributesNotInHtml()) ) {
+					$htmlAttributes .= Helper::getHtmlAttributeName($key) . "='" . $value . "'";
 				}
 			}
 			return $htmlAttributes;
 		}
+
 	}

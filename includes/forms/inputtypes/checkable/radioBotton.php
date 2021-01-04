@@ -1,14 +1,17 @@
 <?php
 
-class checkbox extends checkable_inputs
+class radiobutton extends KCheckables
 {
-
 	public function __construct( array $attributes = [] ) {
 		parent::__construct( $attributes );
-		$this->setType("checkbox");
+		$this->setType("radio");
 	}
 
-	public function render($class = self::class) {
+	/**
+	 * Override the Parent Render function
+	 * to write the labeb "After" the input
+	 */
+	public function render() {
 		parent::render();
 		if ( !empty( $this->getLabel() ) ) {
 			echo "<label for='" . $this->getId() . "'>" . $this->getLabel() . "</label>";

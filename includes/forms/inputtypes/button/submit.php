@@ -1,8 +1,9 @@
 <?php
 
-class submit extends form_input
+class submit extends KInput
 {
 	public function __construct() {
 		$this->setType("submit");
 	}
+
 }

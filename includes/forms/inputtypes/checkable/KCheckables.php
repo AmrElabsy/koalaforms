@@ -1,6 +1,6 @@
 <?php
 
-Abstract class checkable_inputs extends form_input
+Abstract class KCheckables extends KInput
 {
 	protected $checked;
 
@@ -15,6 +15,5 @@ Abstract class checkable_inputs extends form_input
 	public function uncheck() {
 		$this->checked = false;
 	}
-
 
 }
